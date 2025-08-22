@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 
+     * PORTFOLIO WEBSITE - MAIN HTML STRUCTURE
+     * ========================================
+     * 
+     * This is the main HTML file for Mihara Amandi's portfolio website.
+     * It includes comprehensive SEO optimization, accessibility features,
+     * and performance optimizations.
+     * 
+     * SEO OPTIMIZATION:
+     * - Comprehensive meta tags for search engines
+     * - Open Graph and Twitter Card tags for social sharing
+     * - Schema.org structured data for rich snippets
+     * - Canonical URL to prevent duplicate content
+     * - Semantic HTML structure for better crawling
+     * 
+     * PERFORMANCE OPTIMIZATION:
+     * - Critical CSS inlined for above-the-fold content
+     * - Preconnect and DNS prefetch for external resources
+     * - Optimized font loading with display=swap
+     * - Lazy loading for images and non-critical resources
+     * 
+     * ACCESSIBILITY FEATURES:
+     * - ARIA labels and roles throughout
+     * - Keyboard navigation support
+     * - Screen reader compatibility
+     * - Color contrast compliance
+     * - Reduced motion support
+     * 
+     * THEME SYSTEM:
+     * - Immediate theme detection to prevent FOUC
+     * - System preference detection with localStorage fallback
+     * - Smooth transitions between light and dark modes
+     * - Theme-aware components with consistent styling
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>Mihara Amandi - Software Engineering Student & Web Developer | Galle, Sri Lanka</title>
+    <meta name="title" content="Mihara Amandi - Software Engineering Student & Web Developer | Galle, Sri Lanka">
+    <meta name="description" content="Mihara Amandi is a passionate Software Engineering Student specializing in web development, database management, UI/UX design, and networking. Based in Galle, Sri Lanka with expertise in Python, Java, JavaScript, and modern web technologies.">
+    <meta name="keywords" content="Mihara Amandi, Software Engineering, Web Development, Database Management, UI/UX Design, Python, Java, JavaScript, HTML, CSS, SQL, Figma, Cisco, Sri Lanka, Portfolio, Full Stack Developer, Frontend Developer, Backend Developer">
+    <meta name="author" content="Mihara Amandi">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mihara-amandi.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mihara-amandi.com/">
+    <meta property="og:title" content="Mihara Amandi - Software Engineering Student & Web Developer">
+    <meta property="og:description" content="Passionate Software Engineering Student specializing in web development, database management, UI/UX design, and networking. Based in Galle, Sri Lanka.">
+    <meta property="og:image" content="https://mihara-amandi.com/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Mihara Amandi - Software Engineering Student Portfolio">
+    <meta property="og:site_name" content="Mihara Amandi Portfolio">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mihara-amandi.com/">
+    <meta property="twitter:title" content="Mihara Amandi - Software Engineering Student & Web Developer">
+    <meta property="twitter:description" content="Passionate Software Engineering Student specializing in web development, database management, UI/UX design, and networking. Based in Galle, Sri Lanka.">
+    <meta property="twitter:image" content="https://mihara-amandi.com/images/og-image.jpg">
+    <meta property="twitter:image:alt" content="Mihara Amandi - Software Engineering Student Portfolio">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="msapplication-TileColor" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Mihara Amandi">
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://kit.fontawesome.com">
+    
+    <!-- DNS Prefetch for performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//kit.fontawesome.com">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+                 <!-- 
+                  * CRITICAL CSS INLINE
+                  * ===================
+                  * 
+                  * This section contains critical CSS that must load immediately
+                  * to prevent layout shifts and ensure smooth initial rendering.
+                  * Only includes styles for above-the-fold content.
+                  * 
+                  * PERFORMANCE BENEFITS:
+                  * - Eliminates render-blocking CSS requests
+                  * - Prevents Flash of Unstyled Content (FOUC)
+                  * - Improves Largest Contentful Paint (LCP)
+                  * - Reduces Cumulative Layout Shift (CLS)
+                  * 
+                  * CRITICAL STYLES INCLUDED:
+                  * - Base body styles for immediate layout
+                  * - Hero section positioning and sizing
+                  * - Navigation glassmorphism effects
+                  * - Theme transition smoothness
+                  -->
+             <style>
+                 /* Critical CSS for above-the-fold content */
+                 body { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+                 .hero-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+                 .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+                 .theme-transition { transition: color 0.3s ease, background-color 0.3s ease; }
+             </style>
+             
+             <!-- 
+              * THEME DETECTION SCRIPT (FOUC PREVENTION)
+              * =========================================
+              * 
+              * This script runs immediately to detect and apply the user's theme
+              * preference before the page renders, preventing Flash of Unstyled Content.
+              * 
+              * THEME DETECTION PRIORITY:
+              * 1. User's stored preference (localStorage)
+              * 2. System preference (prefers-color-scheme)
+              * 3. Fallback to light theme
+              * 
+              * PERFORMANCE BENEFITS:
+              * - Prevents theme flashing on page load
+              * - Improves perceived performance
+              * - Maintains user's theme preference
+              * - Reduces layout shifts during theme application
+              * 
+              * ACCESSIBILITY:
+              * - Respects user's system preferences
+              * - Provides consistent theme experience
+              * - Maintains theme across page refreshes
+              -->
+             <script>
+                 (function() {
+                     // Immediately detect and apply theme to prevent flash
+                     function getInitialTheme() {
+                         // Check localStorage first (user's explicit choice)
+                         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+                             return localStorage.getItem('theme');
+                         }
+                         
+                         // Check system preference (automatic detection)
+                         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                             return 'dark';
+                         }
+                         
+                         // Fallback to light theme (default)
+                         return 'light';
+                     }
+                     
+                     const theme = getInitialTheme();
+                     document.documentElement.classList.add(theme);
+                     document.body.classList.add(theme);
+                     
+                     // Set theme-color meta tag
+                     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+                     if (metaThemeColor) {
+                         metaThemeColor.content = theme === 'dark' ? '#1f2937' : '#ffffff';
+                     }
+                 })();
+             </script>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/contact-modern.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts with display=swap for performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mihara Amandi",
+        "jobTitle": "Software Engineering Student",
+        "description": "Passionate Software Engineering Student specializing in web development, database management, UI/UX design, and networking.",
+        "url": "https://mihara-amandi.com",
+        "image": "https://mihara-amandi.com/images/placeholder-profile.jpg",
+        "sameAs": [
+            "https://github.com/amandii001"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Galle",
+            "addressCountry": "Sri Lanka"
+        },
+        "knowsAbout": [
+            "Software Engineering",
+            "Web Development",
+            "Database Management",
+            "UI/UX Design",
+            "Python",
+            "Java",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "SQL"
+        ],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "London Metropolitan University"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Mihara Amandi Portfolio",
+        "url": "https://mihara-amandi.com",
+        "description": "Software Engineering Student Portfolio showcasing web development, database management, and UI/UX design projects.",
+        "author": {
+            "@type": "Person",
+            "name": "Mihara Amandi"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://mihara-amandi.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body class="theme-transition font-['Inter']">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-lg z-50">
+        Skip to main content
+    </a>
+    
+    <!-- Header -->
+    <header class="fixed top-0 w-full glass-nav z-50" role="banner">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Main navigation">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-gray-900 dark:text-white">
+                        <a href="#home" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Go to homepage">
+                            Mihara Amandi
+                        </a>
+                    </h1>
+                </div>
+                
+                <div class="hidden md:block">
+                    <ul class="ml-10 flex items-baseline space-x-4" role="menubar">
+                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.1s;">
+                            <a href="#home" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem" aria-current="page">Home</a>
+                        </li>
+                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.2s;">
+                            <a href="#about" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">About</a>
+                        </li>
+                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.3s;">
+                            <a href="#skills" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">Skills</a>
+                        </li>
+                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.4s;">
+                            <a href="#education" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">Education</a>
+                        </li>
+                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.5s;">
+                            <a href="#projects" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">Projects</a>
+                        </li>
+                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.6s;">
+                            <a href="#contact" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                  
+
+                    <!-- Theme Toggle -->
+                        <button 
+                        id="theme-toggle" 
+                        class="theme-aware p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" 
+                        aria-label="Toggle dark mode"
+                        aria-pressed="false"
+                        type="button"
+                        >
+                        <!-- Moon icon for light mode -->
+                        <i class="fas fa-moon text-black dark:hidden" aria-hidden="true"></i>
+
+                        <!-- Sun icon for dark mode -->
+                        <i class="fas fa-sun text-white hidden dark:block" aria-hidden="true"></i>
+
+                        <span class="sr-only">Toggle dark mode</span>
+                        </button>
+
+
+                    
+                    <!-- Mobile menu button -->
+                    <button 
+                        id="mobile-menu-button" 
+                        class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" 
+                        aria-label="Toggle mobile menu"
+                        aria-expanded="false"
+                        aria-controls="mobile-menu"
+                        type="button"
+                    >
+                        <i class="fas fa-bars" aria-hidden="true"></i>
+                        <span class="sr-only">Toggle mobile menu</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden mobile-menu animate-slide-in-top" role="menu" aria-labelledby="mobile-menu-button">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.1s;" role="menuitem" aria-current="page">Home</a>
+                <a href="#about" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.2s;" role="menuitem">About</a>
+                <a href="#skills" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.3s;" role="menuitem">Skills</a>
+                <a href="#education" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.4s;" role="menuitem">Education</a>
+                <a href="#projects" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.5s;" role="menuitem">Projects</a>
+                <a href="#contact" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.6s;" role="menuitem">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section" aria-labelledby="hero-title">
+            <div class="hero-content animate-fade-in">
+                <img 
+                    src="images/placeholder-profile.jpg" 
+                    alt="Mihara Amandi - Professional Headshot" 
+                    class="hero-image"
+                    loading="lazy"
+                    width="300"
+                    height="300"
+                    decoding="async"
+                >
+                <h1 id="hero-title" class="hero-title">
+                    Mihara Amandi
+                </h1>
+                <p class="hero-subtitle">
+                    I'm a <span class="typing-animation">Software Engineering Student</span>
+                </p>
+              
+                <div class="hero-buttons" role="group" aria-label="Call to action buttons">
+                    <a href="#projects" class="hero-btn hero-btn-primary" role="button" aria-label="View my projects and work">
+                        <span class="btn-content">
+                            <i class="fas fa-code btn-icon" aria-hidden="true"></i>
+                            <span class="btn-text">View My Work</span>
+                        </span>
+                        <span class="btn-glow"></span>
+                        <span class="btn-particles"></span>
+                    </a>
+                    <a href="#contact" class="hero-btn hero-btn-secondary" role="button" aria-label="Contact me">
+                        <span class="btn-content">
+                            <i class="fas fa-envelope btn-icon" aria-hidden="true"></i>
+                            <span class="btn-text">Get In Touch</span>
+                        </span>
+                        <span class="btn-glow"></span>
+                        <span class="btn-particles"></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+       <!-- About Section -->
+        <section id="about" class="about-section theme-aware" aria-labelledby="about-title">
+    <div class="container mx-auto px-6 max-w-6xl">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <h2 id="about-title" class="section-title-heading text-3xl lg:text-4xl font-bold mb-3">
+                About Me
+            </h2>
+            <p class="section-title-subtitle text-lg max-w-xl mx-auto">
+                Software Engineering Student from Galle, Sri Lanka
+            </p>
+        </div>
+        
+        <div class="grid lg:grid-cols-5 gap-8 items-center">
+            <!-- Profile Image -  -->
+            <div class="lg:col-span-2 flex justify-center">
+                <div class="relative group">
+                    <div class="absolute -inset-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-25 group-hover:opacity-40 transition-all duration-300"></div>
+                    <img 
+                        src="images/placeholder-profile.jpg" 
+                        alt="Mihara Amandi" 
+                        class="relative w-64 h-64 rounded-full object-cover border-3 border-white dark:border-gray-700 shadow-xl transform group-hover:scale-105 transition-all duration-300"
+                        loading="lazy"
+                        width="256"
+                        height="256"
+                        decoding="async"
+                    >
+                    <!-- Smaller Floating Elements -->
+                    <div class="absolute top-2 -right-2 bg-blue-500 text-white p-2 rounded-full shadow-lg animate-bounce">
+                        <i class="fas fa-code text-sm"></i>
+                    </div>
+                    <div class="absolute bottom-6 -left-2 bg-purple-500 text-white p-2 rounded-full shadow-lg animate-bounce" style="animation-delay: 0.5s">
+                        <i class="fas fa-graduation-cap text-sm"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content - Takes more space -->
+            <div class="lg:col-span-3 space-y-5">
+                <!-- Quick Stats - Inline -->
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                    <div class="about-stat-card theme-aware">
+                        <div class="stat-number">11+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="about-stat-card theme-aware">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+                
+                <!-- Main Description - Shorter -->
+                <div class="space-y-3">
+                    <p class="about-description text-base leading-relaxed">
+                        Currently pursuing <span class="highlight-text">BEng (Hons) Software Engineering</span> at London Metropolitan University. Passionate about creating innovative solutions across healthcare, retail, and entertainment industries.
+                    </p>
+                </div>
+                
+                <!-- Compact Skills -->
+                <div>
+                    <h3 class="about-skills-title text-lg font-semibold mb-3">Core Technologies</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="about-skill-tag theme-aware">
+                            <i class="fab fa-microsoft text-xs mr-1"></i>C#
+                        </span>
+                        <span class="about-skill-tag theme-aware">
+                            <i class="fab fa-java text-xs mr-1"></i>Java
+                        </span>
+                        <span class="about-skill-tag theme-aware">
+                            <i class="fab fa-python text-xs mr-1"></i>Python
+                        </span>
+                        <span class="about-skill-tag theme-aware">
+                            <i class="fab fa-js text-xs mr-1"></i>JavaScript
+                        </span>
+                        <span class="about-skill-tag theme-aware">
+                            <i class="fab fa-figma text-xs mr-1"></i>UI/UX
+                        </span>
+                        <span class="about-skill-tag theme-aware">
+                            <i class="fas fa-database text-xs mr-1"></i>SQL
+                        </span>
+                        <span class="about-skill-tag theme-aware">
+                            <i class="fas fa-network-wired text-xs mr-1"></i>Cisco
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Compact Contact -->
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/amandii001" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transform hover:scale-110 transition-all duration-200" aria-label="GitHub" target="_blank" rel="noopener">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="mailto:miharaamandi4@gmail.com" class="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transform hover:scale-110 transition-all duration-200" aria-label="Email">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Hover effects for skill tags */
+.skill-tag:hover {
+    transform: translateY(-1px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Stats card hover effect */
+.about-section .hover\\:scale-105:hover {
+    transform: scale(1.05) translateY(-2px);
+}
+
+/* Compact responsive adjustments */
+@media (max-width: 1024px) {
+    .about-section .lg\\:col-span-2 {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Reduce vertical spacing on mobile */
+@media (max-width: 768px) {
+    .about-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    
+    .about-section .mb-12 {
+        margin-bottom: 2rem;
+    }
+    
+    .about-section .w-64 {
+        width: 12rem;
+        height: 12rem;
+    }
+}
+</style>
+        
+        <!-- Fun Fact or Quote -->
+        <div class="text-center mt-16">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg max-w-2xl mx-auto border border-gray-100 dark:border-gray-700">
+                <i class="fas fa-quote-left text-3xl text-blue-500 mb-4"></i>
+                <p class="text-lg italic text-gray-700 dark:text-gray-300 mb-4">
+                    "I believe technology should serve people and improve their daily lives. Each project teaches me something new, and I approach every challenge with curiosity and determination."
+                </p>
+                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto"></div>
+            </div>
+        </div>
+        <div class="text-center mt-16"></div>
+    </div>
+</section>
+
+<style>
+/* Custom animations for skill tags */
+.skill-tag:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Floating animation for icons */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Hover effect for stats cards */
+.about-section .bg-white:hover,
+.about-section .dark\\:bg-gray-800:hover {
+    transform: translateY(-4px);
+    transition: all 0.3s ease;
+}
+
+/* Gradient text animation */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.bg-gradient-to-r.bg-clip-text {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+</style>
+
+        <!-- Education Timeline Section -->
+        <section id="education" class="education-section" aria-labelledby="education-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="education-title" class="section-title-heading">Education & Timeline</h2>
+                    <p class="section-title-subtitle">
+                        My educational journey and professional milestones that have shaped my career.
+                    </p>
+                </div>
+                
+                <div class="education-timeline" role="list" aria-label="Education timeline">
+                    <!-- Timeline line -->
+                    <div class="timeline-line" aria-hidden="true"></div>
+                    
+                    <!-- Timeline items -->
+                    <div class="space-y-12" role="list">
+                        <!-- Education Item 1 -->
+                        <div class="timeline-item" role="listitem">
+                            <div class="education-card theme-aware">
+                                <div class="education-header">
+                                    <div class="institution-logo" aria-hidden="true">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="education-info">
+                                        <h3>BEng (Hons) Software Engineering</h3>
+                                        <p class="institution">London Metropolitan University</p>
+                                        <p class="period">2025 - Present</p>
+                                    </div>
+                                </div>
+                                <p class="education-description">
+                                    Currently pursuing a Bachelor's degree in Software Engineering, focusing on modern software development practices and technologies.
+                                </p>
+                                <div class="progress-indicator"></div>
+                            </div>
+                        </div>
+
+                        <!-- Education Item 2 -->
+                        <div class="timeline-item" role="listitem">
+                            <div class="education-card theme-aware">
+                                <div class="education-header">
+                                    <div class="institution-logo" aria-hidden="true">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="education-info">
+                                        <h3>Pearson BTEC HND Computing</h3>
+                                        <p class="institution">Esoft Metro Campus</p>
+                                        <p class="period">2023 - 2024</p>
+                                    </div>
+                                </div>
+                                <p class="education-description">
+                                    Higher National Diploma in Computing, covering programming, web development, and database management.
+                                </p>
+                                <div class="progress-indicator"></div>
+                            </div>
+                        </div>
+
+                        <!-- Education Item 3 -->
+                        <div class="timeline-item" role="listitem">
+                            <div class="education-card theme-aware">
+                                <div class="education-header">
+                                    <div class="institution-logo" aria-hidden="true">
+                                        <i class="fas fa-language"></i>
+                                    </div>
+                                    <div class="education-info">
+                                        <h3>Diploma English Language</h3>
+                                        <p class="institution">Aquinas College</p>
+                                        <p class="period">2022</p>
+                                    </div>
+                                </div>
+                                <p class="education-description">
+                                    Advanced English language proficiency certification, essential for international software development.
+                                </p>
+                                <div class="progress-indicator"></div>
+                            </div>
+                        </div>
+
+                        <!-- Education Item 4 -->
+                        <div class="timeline-item" role="listitem">
+                            <div class="education-card theme-aware">
+                                <div class="education-header">
+                                    <div class="institution-logo" aria-hidden="true">
+                                        <i class="fas fa-school"></i>
+                                    </div>
+                                    <div class="education-info">
+                                        <h3>A/L Biological Science</h3>
+                                        <p class="institution">Southlands College, Galle</p>
+                                        <p class="period">2021</p>
+                                    </div>
+                                </div>
+                                <p class="education-description">
+                                    Advanced Level qualification in Biological Science, providing a strong foundation in analytical thinking and problem-solving.
+                                </p>
+                                <div class="progress-indicator"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section" aria-labelledby="skills-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="skills-title" class="section-title-heading">Skills & Technologies</h2>
+                    <p class="section-title-subtitle">
+                        I work with a variety of technologies to create robust and scalable solutions.
+                    </p>
+                </div>
+                
+                <div class="skills-grid" role="list" aria-label="Technical skills categories">
+                    <!-- Programming Languages -->
+                    <div class="skill-category" role="listitem">
+                        <h3>Programming Languages</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">C#</span>
+                                    <span class="skill-percentage" aria-label="C# skill level: Intermediate">Intermediate</span>
+                                </div>
+                                <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="C# skill level">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Java</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Python</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">PHP</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Web Development -->
+                    <div class="skill-category">
+                        <h3>Web Development</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">HTML</span>
+                                    <span class="skill-percentage">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">CSS</span>
+                                    <span class="skill-percentage">Advanced</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Web Design</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Database Management -->
+                    <div class="skill-category">
+                        <h3>Database Management</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">SQL</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">MySQL</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- UI/UX Design -->
+                    <div class="skill-category">
+                        <h3>UI/UX Design</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Figma</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Adobe XD</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Canva</span>
+                                    <span class="skill-percentage">Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Networking -->
+                    <div class="skill-category">
+                        <h3>Networking</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span class="skill-name">Cisco</span>
+                                    <span class="skill-percentage">Basic to Intermediate</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                                         <!-- MS Office -->
+                     <div class="skill-category">
+                         <h3>MS Office</h3>
+                         <div class="space-y-4">
+                             <div class="skill-item">
+                                 <div class="skill-header">
+                                     <span class="skill-name">Word</span>
+                                     <span class="skill-percentage">Advanced</span>
+                                 </div>
+                                 <div class="skill-bar">
+                                     <div class="skill-progress" style="width: 90%"></div>
+                                 </div>
+                             </div>
+                             <div class="skill-item">
+                                 <div class="skill-header">
+                                     <span class="skill-name">Excel</span>
+                                     <span class="skill-percentage">Advanced</span>
+                                 </div>
+                                 <div class="skill-bar">
+                                     <div class="skill-progress" style="width: 90%"></div>
+                                 </div>
+                             </div>
+                             <div class="skill-item">
+                                 <div class="skill-header">
+                                     <span class="skill-name">PowerPoint</span>
+                                     <span class="skill-percentage">Advanced</span>
+                                 </div>
+                                 <div class="skill-bar">
+                                     <div class="skill-progress" style="width: 90%"></div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     
+                     <!-- Languages -->
+                     <div class="skill-category">
+                         <h3>Languages</h3>
+                         <div class="space-y-4">
+                             <div class="skill-item">
+                                 <div class="skill-header">
+                                     <span class="skill-name">English</span>
+                                     <span class="skill-percentage">Fluent</span>
+                                 </div>
+                                 <div class="skill-bar">
+                                     <div class="skill-progress" style="width: 95%"></div>
+                                 </div>
+                             </div>
+                             <div class="skill-item">
+                                 <div class="skill-header">
+                                     <span class="skill-name">Sinhala</span>
+                                     <span class="skill-percentage">Native</span>
+                                 </div>
+                                 <div class="skill-bar">
+                                     <div class="skill-progress" style="width: 100%"></div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                </div>
+
+                <!-- Soft Skills Grid -->
+                <div class="soft-skills-grid">
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="soft-skill-name">Problem Solving</h4>
+                        <p class="soft-skill-description">Critical Thinking, Analytical Skills</p>
+                    </div>
+                    
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4 class="soft-skill-name">Time Management</h4>
+                        <p class="soft-skill-description">Task Prioritization, Deadline Management</p>
+                    </div>
+                    
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="soft-skill-name">Teamwork</h4>
+                        <p class="soft-skill-description">Collaboration, Communication</p>
+                    </div>
+                    
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h4 class="soft-skill-name">Project Management</h4>
+                        <p class="soft-skill-description">Planning, Resource Allocation</p>
+                    </div>
+                    
+                    <div class="soft-skill-card">
+                        <div class="soft-skill-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h4 class="soft-skill-name">Leadership</h4>
+                        <p class="soft-skill-description">Motivating Teams, Decision Making</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section-alt">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="section-title-heading">Certifications</h2>
+                    <p class="section-title-subtitle">
+                        Professional certifications that validate my expertise and commitment to continuous learning.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Certification 1 -->
+                    <article class="glass-card p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-wifi text-blue-600 dark:text-blue-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Introduction to IoT and Digital Transformation</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Foundational knowledge in Internet of Things technologies and digital transformation strategies.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Issued: 2025</span>
+                            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline text-sm">View Certificate</a>
+                        </div>
+                    </article>
+
+                    <!-- Certification 2 -->
+                    <article class="glass-card p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-brain text-green-600 dark:text-green-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Introduction to Modern AI</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Understanding of artificial intelligence concepts and modern AI applications.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Issued: 2025</span>
+                            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline text-sm">View Certificate</a>
+                        </div>
+                    </article>
+
+                    <!-- Certification 3 -->
+                    <article class="glass-card p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-network-wired text-yellow-600 dark:text-yellow-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Networking Basics</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Fundamental networking concepts and protocols.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Issued: 2025</span>
+                            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline text-sm">View Certificate</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="section-title-heading">Featured Projects</h2>
+                    <p class="section-title-subtitle">
+                        Here are some of my recent projects that showcase my skills and creativity.
+                    </p>
+                </div>
+                
+                <!-- Project Filter -->
+                <div class="project-filter mb-8">
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button class="filter-btn active" data-filter="all">
+                            All Projects
+                        </button>
+                        <button class="filter-btn" data-filter="development">
+                            Development
+                        </button>
+                        <button class="filter-btn" data-filter="design">
+                            UI/UX Design
+                        </button>
+                        <button class="filter-btn" data-filter="networking">
+                            Networking
+                        </button>
+                        <button class="filter-btn" data-filter="research">
+                            Research
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                    <!-- Project 1: Payroll System for Grifindo Toyshop -->
+                    <article class="project-card theme-aware" data-category="development">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-blue-400 to-purple-600 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-calculator text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Payroll System for Grifindo Toyshop</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Automated salary processing and employee management system designed for efficient payroll operations at Grifindo Toyshop.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">MSSQL</span>
+                                <span class="tech-tag">Database Design</span>
+                                <span class="tech-tag">Business Logic</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Live Demo</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 2: Database Solution for Qiett Attic Films -->
+                    <article class="project-card theme-aware" data-category="development">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-green-400 to-blue-600 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-film text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Database Solution for Qiett Attic Films</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Comprehensive database management system for film production company managing multiple aspects of film operations.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">MSSQL</span>
+                                <span class="tech-tag">Enterprise Design</span>
+                                <span class="tech-tag">Film Industry</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Live Demo</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 3: Network Solution for Alliance Health -->
+                    <article class="project-card theme-aware" data-category="networking">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-red-400 to-pink-600 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-heartbeat text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Network Solution for Alliance Health</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Implemented comprehensive network infrastructure solution for healthcare organization ensuring secure and efficient connectivity.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Cisco</span>
+                                <span class="tech-tag">Networking</span>
+                                <span class="tech-tag">Healthcare IT</span>
+                                <span class="tech-tag">Security</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">View Project</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Documentation</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 4: Bus Seats Reservation System -->
+                    <article class="project-card theme-aware" data-category="development">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-yellow-400 to-orange-600 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-bus text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Bus Seats Reservation System</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Java-based reservation system for bus transportation with comprehensive booking management features.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Java</span>
+                                <span class="tech-tag">System Design</span>
+                                <span class="tech-tag">Transportation</span>
+                                <span class="tech-tag">Booking System</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Live Demo</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 5: E-Video Cloud App UI/UX Design -->
+                    <article class="project-card theme-aware" data-category="design">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-purple-400 to-indigo-600 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-music text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fab fa-adobe"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">E-Video Cloud App UI/UX Design</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Mobile interface design for music entertainment application focusing on user experience and modern design principles.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Adobe XD</span>
+                                <span class="tech-tag">Mobile Design</span>
+                                <span class="tech-tag">Entertainment App</span>
+                                <span class="tech-tag">Prototyping</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">View Design</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Adobe XD</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 6: Auto Cars Taxi Reservation UI/UX -->
+                    <article class="project-card theme-aware" data-category="design">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-teal-400 to-cyan-600 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-taxi text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fab fa-adobe"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Auto Cars Taxi Reservation UI/UX</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Web interface design for taxi booking system with focus on ease of use and efficient booking workflow.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Adobe XD</span>
+                                <span class="tech-tag">Web Design</span>
+                                <span class="tech-tag">Transportation</span>
+                                <span class="tech-tag">User Experience</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">View Design</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Adobe XD</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 7: Web Portfolio for Photographer -->
+                    <article class="project-card theme-aware" data-category="development">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-pink-400 to-rose-600 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-camera text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Web Portfolio for Photographer</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Complete web solution for professional photographer showcasing work and managing client interactions.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">Creative Industry</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Live Demo</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 8: Dashboard System for Mama's Bakery -->
+                    <article class="project-card theme-aware" data-category="development">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-amber-400 to-orange-600 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-chart-line text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Dashboard System for Mama's Bakery</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Business intelligence dashboard providing data-driven insights for bakery operations and decision making.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Power BI</span>
+                                <span class="tech-tag">Data Visualization</span>
+                                <span class="tech-tag">Business Intelligence</span>
+                                <span class="tech-tag">Analytics</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">View Dashboard</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Documentation</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 9: Sales Data Analysis System for Sampath Food City -->
+                    <article class="project-card theme-aware" data-category="development">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-emerald-400 to-green-600 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-chart-bar text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Sales Data Analysis System for Sampath Food City</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Python-based analytical system providing comprehensive insights into retail sales performance and customer behavior.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Data Analysis</span>
+                                <span class="tech-tag">Retail Analytics</span>
+                                <span class="tech-tag">Statistical Analysis</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Live Demo</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 10: Big Data in Domino's Pizza (Research) -->
+                    <article class="project-card theme-aware" data-category="research">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-red-500 to-red-700 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-search text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Big Data in Domino's Pizza</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Research project analyzing the impact and implementation of big data analytics on operational efficiency in fast food industry.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Research</span>
+                                <span class="tech-tag">Big Data</span>
+                                <span class="tech-tag">Business Analysis</span>
+                                <span class="tech-tag">Academic Writing</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">View Research</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Documentation</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 11: Big Data in Healthcare (Research) -->
+                    <article class="project-card theme-aware" data-category="research">
+                        <div class="project-image-container">
+                            <div class="bg-gradient-to-br from-blue-500 to-indigo-700 h-48 rounded-t-xl flex items-center justify-center">
+                                <i class="fas fa-microscope text-white text-4xl"></i>
+                            </div>
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </a>
+                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Big Data in Healthcare at Queensbury Hospital</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                Comprehensive study on how big data analytics transforms healthcare delivery and patient outcomes in hospital settings.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tech-tag">Research</span>
+                                <span class="tech-tag">Healthcare Informatics</span>
+                                <span class="tech-tag">Big Data</span>
+                                <span class="tech-tag">Healthcare Analysis</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link" target="_blank" rel="noopener">View Research</a>
+                                <a href="#" class="project-link" target="_blank" rel="noopener">Documentation</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-alt">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="section-title-heading">Get In Touch</h2>
+                    <p class="section-title-subtitle">
+                        Ready to bring your ideas to life? Let's create something amazing together!
+                    </p>
+                </div>
+                
+                <!-- Modern Contact Grid -->
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info-section">
+                        <div class="contact-header">
+                            <h3 class="contact-title">Let's Start a Conversation</h3>
+                            <p class="contact-description">
+                                Whether you have a project in mind, want to discuss opportunities, or just want to say hello, I'd love to hear from you. Let's make something incredible together!
+                            </p>
+                        </div>
+                        
+                        <!-- Modern Contact Cards -->
+                        <div class="contact-cards">
+                            <a href="mailto:miharaamandi4@gmail.com" class="contact-card" data-contact="email">
+                                <div class="contact-card-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-card-content">
+                                    <h4>Email</h4>
+                                    <p>miharaamandi4@gmail.com</p>
+                                    <span class="contact-card-action">Send Email</span>
+                                </div>
+                                <div class="contact-card-glow"></div>
+                            </a>
+                            
+                            <a href="tel:+94701054113" class="contact-card" data-contact="phone">
+                                <div class="contact-card-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-card-content">
+                                    <h4>Phone</h4>
+                                    <p>+94 70 105 4113</p>
+                                    <span class="contact-card-action">Call Now</span>
+                                </div>
+                                <div class="contact-card-glow"></div>
+                            </a>
+                            
+                            <a href="https://github.com/amandii001" target="_blank" rel="noopener noreferrer" class="contact-card" data-contact="github">
+                                <div class="contact-card-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="contact-card-content">
+                                    <h4>GitHub</h4>
+                                    <p>github.com/amandii001</p>
+                                    <span class="contact-card-action">View Profile</span>
+                                </div>
+                                <div class="contact-card-glow"></div>
+                            </a>
+                            
+                            <a href="https://maps.app.goo.gl/hZMFiWxwPScMXXUe6" target="_blank" rel="noopener noreferrer" class="contact-card" data-contact="location">
+                                <div class="contact-card-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-card-content">
+                                    <h4>Location</h4>
+                                    <p>Galle, Sri Lanka</p>
+                                    <span class="contact-card-action">View on Map</span>
+                                </div>
+                                <div class="contact-card-glow"></div>
+                            </a>
+                        </div>
+                        
+                        <!-- Modern Location Card -->
+                        <div class="location-card">
+                            <div class="location-header">
+                                <div class="location-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4>Based in Galle, Sri Lanka</h4>
+                                    <p>Beautiful coastal city in Southern Province</p>
+                                </div>
+                            </div>
+                            <div class="location-map">
+                                <a href="https://maps.app.goo.gl/hZMFiWxwPScMXXUe6" target="_blank" rel="noopener noreferrer" class="map-placeholder">
+                                    <div class="map-content">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                        <span>View on Google Maps</span>
+                                        <small>Click to open interactive map</small>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Modern Contact Form -->
+                    <div class="contact-form-section">
+                        <div class="contact-form-card">
+                            <div class="form-header">
+                                <h3>Send Me a Message</h3>
+                                <p>I'll get back to you as soon as possible</p>
+                            </div>
+                            
+                            <form class="modern-contact-form" action="#" method="POST">
+                                <div class="form-group">
+                                    <div class="input-wrapper">
+                                        <input type="text" id="name" name="name" class="modern-input" required>
+                                        <label for="name" class="input-label">Full Name</label>
+                                        <div class="input-icon">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="input-wrapper">
+                                        <input type="email" id="email" name="email" class="modern-input" required>
+                                        <label for="email" class="input-label">Email Address</label>
+                                        <div class="input-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="input-wrapper">
+                                        <input type="text" id="subject" name="subject" class="modern-input" required>
+                                        <label for="subject" class="input-label">Subject</label>
+                                        <div class="input-icon">
+                                            <i class="fas fa-tag"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="input-wrapper">
+                                        <textarea id="message" name="message" class="modern-textarea" rows="5" required></textarea>
+                                        <label for="message" class="input-label">Your Message</label>
+                                        <div class="input-icon">
+                                            <i class="fas fa-comment"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" class="modern-submit-btn">
+                                    <span class="btn-text">Send Message</span>
+                                    <span class="btn-icon">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </span>
+                                    <div class="btn-glow"></div>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Mihara Amandi</h3>
+                <p class="text-gray-400 mb-8 max-w-2xl mx-auto">
+                    Software Engineering Student passionate about creating innovative solutions and beautiful user experiences.
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://github.com/amandii001" class="footer-social-link" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mihara-amandi-310a422a0/" class="footer-social-link" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/a.mandiiiii/profilecard/?igsh=MW9yeWNpb29rYnliYw==" class="footer-social-link" aria-label="Instagram Profile" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-400">
+                        © 2024 Mihara Amandi. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/theme-toggle.js"></script>
+</body>
+</html>
