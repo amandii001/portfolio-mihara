@@ -41,7 +41,6 @@ class PortfolioApp {
 
     init() {
         this.setupNavigation();
-        this.setupMobileMenu();
         this.setupFormHandling();
         this.setupIntersectionObserver();
         this.setupTypingEffect();
@@ -72,7 +71,21 @@ class PortfolioApp {
     // ===== NAVIGATION & SMOOTH SCROLLING =====
     setupNavigation() {
         const navLinks = document.querySelectorAll('a[href^="#"]');
+        const header = document.querySelector('.modern-header');
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
         
+        // Scroll effect for header
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Navigation links
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -80,7 +93,7 @@ class PortfolioApp {
                 const targetSection = document.querySelector(targetId);
                 
                 if (targetSection) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const headerHeight = document.querySelector('.modern-header').offsetHeight;
                     const targetPosition = targetSection.offsetTop - headerHeight;
                     
                     // Add click animation
@@ -98,24 +111,45 @@ class PortfolioApp {
                     this.closeMobileMenu();
                 }
             });
-
-            // Add hover animations
-            link.addEventListener('mouseenter', () => {
-                this.addHoverAnimation(link);
+        });
+        
+        // Mobile menu toggle
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                this.toggleMobileMenu();
             });
-
-            link.addEventListener('mouseleave', () => {
-                this.removeHoverAnimation(link);
+        }
+        
+        // Mobile menu close button
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', () => {
+                this.closeMobileMenu();
+            });
+        }
+        
+        // Close mobile menu when clicking outside
+        if (mobileMenu) {
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    this.closeMobileMenu();
+                }
+            });
+        }
+        
+        // Close mobile menu when clicking on links
+        const mobileMenuLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                this.closeMobileMenu();
             });
         });
-
-        // Update active link on scroll
-        window.addEventListener('scroll', this.debounce(() => {
-            this.updateActiveNavLinkOnScroll();
-        }, 100));
-
-        // Add scroll-based header animation
-        this.setupHeaderScrollAnimation();
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.closeMobileMenu();
+            }
+        });
     }
 
     addClickAnimation(element) {
@@ -183,100 +217,45 @@ class PortfolioApp {
         });
     }
 
-    // ===== MOBILE MENU =====
-    setupMobileMenu() {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+
+    toggleMobileMenu() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-nav-link');
-
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', () => {
-                this.toggleMobileMenu();
-            });
-
-            // Close menu when clicking on a link
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    this.closeMobileMenu();
-                });
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                    this.closeMobileMenu();
-                }
-            });
-
-            // Close menu on escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    this.closeMobileMenu();
-                }
-            });
+        
+        if (mobileMenu && mobileMenuBtn) {
+            const isOpen = mobileMenu.classList.contains('active');
+            
+            if (isOpen) {
+                this.closeMobileMenu();
+            } else {
+                this.openMobileMenu();
+            }
         }
     }
 
-    toggleMobileMenu() {
+    openMobileMenu() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const menuIcon = mobileMenuButton.querySelector('i');
-
-        if (mobileMenu.classList.contains('hidden')) {
-            // Open menu with animation
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.style.opacity = '0';
-            mobileMenu.style.transform = 'translateY(-20px)';
-            
-            // Animate menu icon
-            menuIcon.style.transform = 'rotate(90deg)';
-            menuIcon.classList.remove('fa-bars');
-            menuIcon.classList.add('fa-times');
-            
-            // Animate menu appearance
-            requestAnimationFrame(() => {
-                mobileMenu.style.transition = 'all 0.3s ease-out';
-                mobileMenu.style.opacity = '1';
-                mobileMenu.style.transform = 'translateY(0)';
-            });
-
-            // Animate menu items with stagger
-            const menuItems = mobileMenu.querySelectorAll('.mobile-nav-link');
-            menuItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateX(-20px)';
-                
-                setTimeout(() => {
-                    item.style.transition = 'all 0.3s ease-out';
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateX(0)';
-                }, 100 + (index * 50));
-            });
-        } else {
-            this.closeMobileMenu();
+        
+        if (mobileMenu && mobileMenuBtn) {
+            mobileMenu.classList.add('active');
+            mobileMenuBtn.classList.add('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
         }
     }
 
     closeMobileMenu() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const menuIcon = mobileMenuButton.querySelector('i');
-
-        // Animate menu icon
-        menuIcon.style.transform = 'rotate(0deg)';
-        menuIcon.classList.remove('fa-times');
-        menuIcon.classList.add('fa-bars');
-
-        // Animate menu disappearance
-        mobileMenu.style.transition = 'all 0.3s ease-out';
-        mobileMenu.style.opacity = '0';
-        mobileMenu.style.transform = 'translateY(-20px)';
-
-        setTimeout(() => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.style.opacity = '';
-            mobileMenu.style.transform = '';
-        }, 300);
+        
+        if (mobileMenu && mobileMenuBtn) {
+            mobileMenu.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
     }
 
     // ===== FORM HANDLING =====
@@ -743,23 +722,31 @@ class PortfolioApp {
     // ===== PROJECT FILTER FUNCTIONALITY =====
     setupProjectFilter() {
         const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
+        const projectCards = document.querySelectorAll('.project-card.modern-card');
+        const statusCount = document.querySelector('.status-count');
+        const statusText = document.querySelector('.status-text');
 
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.getAttribute('data-filter');
+                const count = button.getAttribute('data-count');
                 
                 // Update active button
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
                 
                 // Filter projects
-                this.filterProjects(filter, projectCards);
+                this.filterProjects(filter, projectCards, statusCount, statusText, count);
+                
+                // Add click animation
+                this.addFilterButtonClickEffect(button);
             });
         });
     }
 
-    filterProjects(filter, projectCards) {
+    filterProjects(filter, projectCards, statusCount, statusText, count) {
+        let visibleCount = 0;
+        
         projectCards.forEach(card => {
             const category = card.getAttribute('data-category');
             
@@ -767,10 +754,27 @@ class PortfolioApp {
                 card.classList.remove('hidden');
                 card.classList.add('visible');
                 card.style.animation = 'fadeInUp 0.6s ease-out';
+                visibleCount++;
             } else {
                 card.classList.add('hidden');
                 card.classList.remove('visible');
             }
+        });
+        
+        // Update status
+        if (statusCount) {
+            statusCount.textContent = visibleCount;
+        }
+        
+        if (statusText) {
+            const filterText = filter === 'all' ? 'all' : filter;
+            statusText.innerHTML = `Showing <span class="status-count">${visibleCount}</span> projects`;
+        }
+        
+        // Add staggered animation delay for visible cards
+        const visibleCards = document.querySelectorAll('.project-card.modern-card.visible');
+        visibleCards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
         });
     }
 

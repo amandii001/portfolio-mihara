@@ -243,21 +243,23 @@ class ThemeManager {
     updateThemeIcon() {
         if (!this.themeToggle) return;
         
-        const moonIcon = this.themeToggle.querySelector('.fa-moon');
-        const sunIcon = this.themeToggle.querySelector('.fa-sun');
-        
-        if (this.currentTheme === 'dark') {
-            moonIcon?.classList.add('hidden');
-            sunIcon?.classList.remove('hidden');
-        } else {
-            moonIcon?.classList.remove('hidden');
-            sunIcon?.classList.add('hidden');
-        }
+        // For the new modern toggle design, we don't need to hide/show icons
+        // The toggle animation is handled by CSS
+        // Just update the aria-pressed state
+        this.updateThemeToggleState(this.currentTheme);
     }
 
     updateThemeToggleState(theme) {
         if (this.themeToggle) {
             this.themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+            
+            // Add transition class for smooth animation
+            this.themeToggle.classList.add('theme-transitioning');
+            
+            // Remove transition class after animation
+            setTimeout(() => {
+                this.themeToggle.classList.remove('theme-transitioning');
+            }, 300);
         }
     }
 

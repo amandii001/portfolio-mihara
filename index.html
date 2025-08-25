@@ -259,88 +259,177 @@
         Skip to main content
     </a>
     
-    <!-- Header -->
-    <header class="fixed top-0 w-full glass-nav z-50" role="banner">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" role="navigation" aria-label="Main navigation">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <h1 class="text-xl font-bold text-gray-900 dark:text-white">
-                        <a href="#home" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors" aria-label="Go to homepage">
-                            Mihara Amandi
-                        </a>
-                    </h1>
+    <!-- Modern Header -->
+    <header class="modern-header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <div class="nav-content">
+                <!-- Logo/Brand -->
+                <div class="nav-brand">
+                    <a href="#home" class="brand-link" aria-label="Go to homepage">
+                        <span class="brand-text">Mihara Amandi</span>
+                        <div class="brand-underline"></div>
+                    </a>
                 </div>
                 
-                <div class="hidden md:block">
-                    <ul class="ml-10 flex items-baseline space-x-4" role="menubar">
-                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.1s;">
-                            <a href="#home" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem" aria-current="page">Home</a>
+                <!-- Desktop Navigation -->
+                <div class="nav-menu-desktop">
+                    <ul class="nav-list" role="menubar">
+                        <li class="nav-item" role="none">
+                            <a href="#home" class="nav-link" role="menuitem" aria-current="page">
+                                <span class="nav-icon">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span class="nav-text">Home</span>
+                            </a>
                         </li>
-                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.2s;">
-                            <a href="#about" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">About</a>
+                        <li class="nav-item" role="none">
+                            <a href="#about" class="nav-link" role="menuitem">
+                                <span class="nav-icon">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <span class="nav-text">About</span>
+                            </a>
                         </li>
-                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.3s;">
-                            <a href="#skills" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">Skills</a>
+                        <li class="nav-item" role="none">
+                            <a href="#skills" class="nav-link" role="menuitem">
+                                <span class="nav-icon">
+                                    <i class="fas fa-code"></i>
+                                </span>
+                                <span class="nav-text">Skills</span>
+                            </a>
                         </li>
-                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.4s;">
-                            <a href="#education" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">Education</a>
+                        <li class="nav-item" role="none">
+                            <a href="#education" class="nav-link" role="menuitem">
+                                <span class="nav-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </span>
+                                <span class="nav-text">Education</span>
+                            </a>
                         </li>
-                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.5s;">
-                            <a href="#projects" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">Projects</a>
+                        <li class="nav-item" role="none">
+                            <a href="#projects" class="nav-link" role="menuitem">
+                                <span class="nav-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </span>
+                                <span class="nav-text">Projects</span>
+                            </a>
                         </li>
-                        <li role="none" class="nav-item animate-fade-in" style="animation-delay: 0.6s;">
-                            <a href="#contact" class="nav-link theme-aware hover:scale-105 transition-transform duration-200" role="menuitem">Contact</a>
+                        <li class="nav-item" role="none">
+                            <a href="#contact" class="nav-link" role="menuitem">
+                                <span class="nav-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="nav-text">Contact</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
                 
-                <div class="flex items-center space-x-4">
-                  
-
-                    <!-- Theme Toggle -->
-                        <button 
+                <!-- Navigation Actions -->
+                <div class="nav-actions">
+                    <!-- Modern Theme Toggle -->
+                    <button 
                         id="theme-toggle" 
-                        class="theme-aware p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" 
+                        class="theme-toggle-btn" 
                         aria-label="Toggle dark mode"
                         aria-pressed="false"
                         type="button"
-                        >
-                        <!-- Moon icon for light mode -->
-                        <i class="fas fa-moon text-black dark:hidden" aria-hidden="true"></i>
-
-                        <!-- Sun icon for dark mode -->
-                        <i class="fas fa-sun text-white hidden dark:block" aria-hidden="true"></i>
-
+                    >
+                        <div class="toggle-container">
+                            <div class="toggle-track">
+                                <div class="toggle-thumb">
+                                    <i class="toggle-icon toggle-icon-sun" aria-hidden="true">
+                                        <i class="fas fa-sun"></i>
+                                    </i>
+                                    <i class="toggle-icon toggle-icon-moon" aria-hidden="true">
+                                        <i class="fas fa-moon"></i>
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
                         <span class="sr-only">Toggle dark mode</span>
-                        </button>
-
-
+                    </button>
                     
-                    <!-- Mobile menu button -->
+                    <!-- Mobile Menu Toggle -->
                     <button 
                         id="mobile-menu-button" 
-                        class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" 
+                        class="mobile-menu-btn" 
                         aria-label="Toggle mobile menu"
                         aria-expanded="false"
                         aria-controls="mobile-menu"
                         type="button"
                     >
-                        <i class="fas fa-bars" aria-hidden="true"></i>
+                        <div class="hamburger">
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                        </div>
                         <span class="sr-only">Toggle mobile menu</span>
                     </button>
                 </div>
             </div>
         </nav>
         
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden mobile-menu animate-slide-in-top" role="menu" aria-labelledby="mobile-menu-button">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.1s;" role="menuitem" aria-current="page">Home</a>
-                <a href="#about" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.2s;" role="menuitem">About</a>
-                <a href="#skills" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.3s;" role="menuitem">Skills</a>
-                <a href="#education" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.4s;" role="menuitem">Education</a>
-                <a href="#projects" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.5s;" role="menuitem">Projects</a>
-                <a href="#contact" class="mobile-nav-link animate-fade-in-up" style="animation-delay: 0.6s;" role="menuitem">Contact</a>
+        <!-- Modern Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu" role="menu" aria-labelledby="mobile-menu-button">
+            <div class="mobile-menu-container">
+                <div class="mobile-menu-header">
+                    <span class="mobile-menu-title">Navigation</span>
+                    <button class="mobile-menu-close" aria-label="Close mobile menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul class="mobile-nav-list">
+                    <li class="mobile-nav-item">
+                        <a href="#home" class="mobile-nav-link" role="menuitem" aria-current="page">
+                            <span class="mobile-nav-icon">
+                                <i class="fas fa-home"></i>
+                            </span>
+                            <span class="mobile-nav-text">Home</span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="#about" class="mobile-nav-link" role="menuitem">
+                            <span class="mobile-nav-icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                            <span class="mobile-nav-text">About</span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="#education" class="mobile-nav-link" role="menuitem">
+                            <span class="mobile-nav-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </span>
+                            <span class="mobile-nav-text">Education</span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="#skills" class="mobile-nav-link" role="menuitem">
+                            <span class="mobile-nav-icon">
+                                <i class="fas fa-code"></i>
+                            </span>
+                            <span class="mobile-nav-text">Skills</span>
+                        </a>
+                    </li>
+                    
+                    <li class="mobile-nav-item">
+                        <a href="#projects" class="mobile-nav-link" role="menuitem">
+                            <span class="mobile-nav-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </span>
+                            <span class="mobile-nav-text">Projects</span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="#contact" class="mobile-nav-link" role="menuitem">
+                            <span class="mobile-nav-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <span class="mobile-nav-text">Contact</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </header>
@@ -433,7 +522,7 @@
                         <div class="stat-label">Projects</div>
                     </div>
                     <div class="about-stat-card theme-aware">
-                        <div class="stat-number">4</div>
+                        <div class="stat-number">5</div>
                         <div class="stat-label">Certifications</div>
                     </div>
                 </div>
@@ -578,107 +667,7 @@
 }
 </style>
 
-        <!-- Education Timeline Section -->
-        <section id="education" class="education-section" aria-labelledby="education-title">
-            <div class="container">
-                <div class="section-title">
-                    <h2 id="education-title" class="section-title-heading">Education & Timeline</h2>
-                    <p class="section-title-subtitle">
-                        My educational journey and professional milestones that have shaped my career.
-                    </p>
-                </div>
-                
-                <div class="education-timeline" role="list" aria-label="Education timeline">
-                    <!-- Timeline line -->
-                    <div class="timeline-line" aria-hidden="true"></div>
-                    
-                    <!-- Timeline items -->
-                    <div class="space-y-12" role="list">
-                        <!-- Education Item 1 -->
-                        <div class="timeline-item" role="listitem">
-                            <div class="education-card theme-aware">
-                                <div class="education-header">
-                                    <div class="institution-logo" aria-hidden="true">
-                                        <i class="fas fa-university"></i>
-                                    </div>
-                                    <div class="education-info">
-                                        <h3>BEng (Hons) Software Engineering</h3>
-                                        <p class="institution">London Metropolitan University</p>
-                                        <p class="period">2025 - Present</p>
-                                    </div>
-                                </div>
-                                <p class="education-description">
-                                    Currently pursuing a Bachelor's degree in Software Engineering, focusing on modern software development practices and technologies.
-                                </p>
-                                <div class="progress-indicator"></div>
-                            </div>
-                        </div>
-
-                        <!-- Education Item 2 -->
-                        <div class="timeline-item" role="listitem">
-                            <div class="education-card theme-aware">
-                                <div class="education-header">
-                                    <div class="institution-logo" aria-hidden="true">
-                                        <i class="fas fa-graduation-cap"></i>
-                                    </div>
-                                    <div class="education-info">
-                                        <h3>Pearson BTEC HND Computing</h3>
-                                        <p class="institution">Esoft Metro Campus</p>
-                                        <p class="period">2023 - 2024</p>
-                                    </div>
-                                </div>
-                                <p class="education-description">
-                                    Higher National Diploma in Computing, covering programming, web development, and database management.
-                                </p>
-                                <div class="progress-indicator"></div>
-                            </div>
-                        </div>
-
-                        <!-- Education Item 3 -->
-                        <div class="timeline-item" role="listitem">
-                            <div class="education-card theme-aware">
-                                <div class="education-header">
-                                    <div class="institution-logo" aria-hidden="true">
-                                        <i class="fas fa-language"></i>
-                                    </div>
-                                    <div class="education-info">
-                                        <h3>Diploma English Language</h3>
-                                        <p class="institution">Aquinas College</p>
-                                        <p class="period">2022</p>
-                                    </div>
-                                </div>
-                                <p class="education-description">
-                                    Advanced English language proficiency certification, essential for international software development.
-                                </p>
-                                <div class="progress-indicator"></div>
-                            </div>
-                        </div>
-
-                        <!-- Education Item 4 -->
-                        <div class="timeline-item" role="listitem">
-                            <div class="education-card theme-aware">
-                                <div class="education-header">
-                                    <div class="institution-logo" aria-hidden="true">
-                                        <i class="fas fa-school"></i>
-                                    </div>
-                                    <div class="education-info">
-                                        <h3>A/L Biological Science</h3>
-                                        <p class="institution">Southlands College, Galle</p>
-                                        <p class="period">2021</p>
-                                    </div>
-                                </div>
-                                <p class="education-description">
-                                    Advanced Level qualification in Biological Science, providing a strong foundation in analytical thinking and problem-solving.
-                                </p>
-                                <div class="progress-indicator"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
+     <!-- Skills Section -->
         <section id="skills" class="skills-section" aria-labelledby="skills-title">
             <div class="container">
                 <div class="section-title">
@@ -955,6 +944,108 @@
             </div>
         </section>
 
+        <!-- Education Timeline Section -->
+        <section id="education" class="education-section" aria-labelledby="education-title">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="education-title" class="section-title-heading">Education & Timeline</h2>
+                    <p class="section-title-subtitle">
+                        My educational journey and professional milestones that have shaped my career.
+                    </p>
+                </div>
+                
+                <div class="education-timeline" role="list" aria-label="Education timeline">
+                    <!-- Timeline line -->
+                    <div class="timeline-line" aria-hidden="true"></div>
+                    
+                    <!-- Timeline items -->
+                    <div class="space-y-12" role="list">
+                        <!-- Education Item 1 -->
+                        <div class="timeline-item" role="listitem">
+                            <div class="education-card theme-aware">
+                                <div class="education-header">
+                                    <div class="institution-logo" aria-hidden="true">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="education-info">
+                                        <h3>BEng (Hons) Software Engineering</h3>
+                                        <p class="institution">London Metropolitan University</p>
+                                        <p class="period">2025 - Present</p>
+                                    </div>
+                                </div>
+                                <p class="education-description">
+                                    Currently pursuing a Bachelor's degree in Software Engineering, focusing on modern software development practices and technologies.
+                                </p>
+                                <div class="progress-indicator"></div>
+                            </div>
+                        </div>
+
+                        <!-- Education Item 2 -->
+                        <div class="timeline-item" role="listitem">
+                            <div class="education-card theme-aware">
+                                <div class="education-header">
+                                    <div class="institution-logo" aria-hidden="true">
+                                        <i class="fas fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="education-info">
+                                        <h3>Pearson BTEC HND Computing</h3>
+                                        <p class="institution">Esoft Metro Campus</p>
+                                        <p class="period">2023 - 2024</p>
+                                    </div>
+                                </div>
+                                <p class="education-description">
+                                    Higher National Diploma in Computing, covering programming, web development, and database management.
+                                </p>
+                                <div class="progress-indicator"></div>
+                            </div>
+                        </div>
+
+                        <!-- Education Item 3 -->
+                        <div class="timeline-item" role="listitem">
+                            <div class="education-card theme-aware">
+                                <div class="education-header">
+                                    <div class="institution-logo" aria-hidden="true">
+                                        <i class="fas fa-language"></i>
+                                    </div>
+                                    <div class="education-info">
+                                        <h3>Diploma English Language</h3>
+                                        <p class="institution">Aquinas College</p>
+                                        <p class="period">2022</p>
+                                    </div>
+                                </div>
+                                <p class="education-description">
+                                    Advanced English language proficiency certification, essential for international software development.
+                                </p>
+                                <div class="progress-indicator"></div>
+                            </div>
+                        </div>
+
+                        <!-- Education Item 4 -->
+                        <div class="timeline-item" role="listitem">
+                            <div class="education-card theme-aware">
+                                <div class="education-header">
+                                    <div class="institution-logo" aria-hidden="true">
+                                        <i class="fas fa-school"></i>
+                                    </div>
+                                    <div class="education-info">
+                                        <h3>A/L Biological Science</h3>
+                                        <p class="institution">Southlands College, Galle</p>
+                                        <p class="period">2021</p>
+                                    </div>
+                                </div>
+                                <p class="education-description">
+                                    Advanced Level qualification in Biological Science, providing a strong foundation in analytical thinking and problem-solving.
+                                </p>
+                                <div class="progress-indicator"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+
         <!-- Certifications Section -->
         <section id="certifications" class="section-alt">
             <div class="container">
@@ -982,7 +1073,7 @@
                         </p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-500 dark:text-gray-400">Issued: 2025</span>
-                            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline text-sm">View Certificate</a>
+                            <a href="https://introduction-to-iot-certificate-miharaamandi4-gmail-com-968071a.tiiny.site/" class="text-blue-600 dark:text-blue-400 hover:underline text-sm" target="_blank" rel="noopener noreferrer">View Certificate</a>
                         </div>
                     </article>
 
@@ -1025,6 +1116,26 @@
                             <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline text-sm">View Certificate</a>
                         </div>
                     </article>
+
+                    <!-- Certification 4 -->
+                    <article class="glass-card p-6 hover:shadow-xl transition-shadow">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fab fa-python text-purple-600 dark:text-purple-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Python Essentials 1</h3>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Comprehensive Python programming fundamentals including syntax, data structures, and basic programming concepts.
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500 dark:text-gray-400">Issued: 2025</span>
+                            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline text-sm">View Certificate</a>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1037,203 +1148,354 @@
                 <div class="section-title">
                     <h2 class="section-title-heading">Featured Projects</h2>
                     <p class="section-title-subtitle">
-                        Here are some of my recent projects that showcase my skills and creativity.
+                        Explore my diverse portfolio showcasing innovative solutions across development, design, networking, and research domains.
                     </p>
                 </div>
                 
-                <!-- Project Filter -->
-                <div class="project-filter mb-8">
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <button class="filter-btn active" data-filter="all">
-                            All Projects
-                        </button>
-                        <button class="filter-btn" data-filter="development">
-                            Development
-                        </button>
-                        <button class="filter-btn" data-filter="design">
-                            UI/UX Design
-                        </button>
-                        <button class="filter-btn" data-filter="networking">
-                            Networking
-                        </button>
-                        <button class="filter-btn" data-filter="research">
-                            Research
-                        </button>
+                <!-- Enhanced Project Filter -->
+                <div class="project-filter-container">
+                    
+                    
+                    <div class="project-filter">
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all" data-count="11">
+                                <span class="filter-icon">
+                                    <i class="fas fa-th-large"></i>
+                                </span>
+                                <span class="filter-text">All Projects</span>
+                                <span class="filter-count">11</span>
+                            </button>
+                            <button class="filter-btn" data-filter="development" data-count="6">
+                                <span class="filter-icon">
+                                    <i class="fas fa-code"></i>
+                                </span>
+                                <span class="filter-text">Development</span>
+                                <span class="filter-count">6</span>
+                            </button>
+                            <button class="filter-btn" data-filter="design" data-count="2">
+                                <span class="filter-icon">
+                                    <i class="fas fa-palette"></i>
+                                </span>
+                                <span class="filter-text">UI/UX Design</span>
+                                <span class="filter-count">2</span>
+                            </button>
+                            <button class="filter-btn" data-filter="networking" data-count="1">
+                                <span class="filter-icon">
+                                    <i class="fas fa-network-wired"></i>
+                                </span>
+                                <span class="filter-text">Networking</span>
+                                <span class="filter-count">1</span>
+                            </button>
+                            <button class="filter-btn" data-filter="research" data-count="2">
+                                <span class="filter-icon">
+                                    <i class="fas fa-microscope"></i>
+                                </span>
+                                <span class="filter-text">Research</span>
+                                <span class="filter-count">2</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Filter Status -->
+                        <div class="filter-status">
+                            <span class="status-text">Showing <span class="status-count">11</span> projects</span>
+                            <div class="status-indicator"></div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Modern Project Grid -->
+                <div class="projects-grid" id="projects-grid">
                     <!-- Project 1: Payroll System for Grifindo Toyshop -->
-                    <article class="project-card theme-aware" data-category="development">
-                        <div class="project-image-container">
-                            <div class="bg-gradient-to-br from-blue-400 to-purple-600 h-48 rounded-t-xl flex items-center justify-center">
-                                <i class="fas fa-calculator text-white text-4xl"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fab fa-github"></i>
-                                    </a>
+                    <article class="project-card modern-card" data-category="development" data-technologies="c#,mssql,database,business-logic">
+                        <div class="project-header">
+                            <div class="project-image-container">
+                                <div class="project-image">
+                                    <div class="image-placeholder bg-gradient-to-br from-blue-500 to-indigo-600">
+                                        <i class="fas fa-calculator"></i>
+                                    </div>
+                                </div>
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <div class="project-links">
+                                            <a href="#" class="project-link-btn" title="Live Demo" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                            <a href="#" class="project-link-btn" title="View Code" target="_blank" rel="noopener">
+                                                <i class="fab fa-github"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-badge">
+                                    <span class="badge-text">Development</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">Payroll System for Grifindo Toyshop</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Automated salary processing and employee management system designed for efficient payroll operations at Grifindo Toyshop.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tech-tag">C#</span>
-                                <span class="tech-tag">MSSQL</span>
-                                <span class="tech-tag">Database Design</span>
-                                <span class="tech-tag">Business Logic</span>
+                        
+                        <div class="project-content">
+                            <div class="project-info">
+                                <h3 class="project-title">Payroll System for Grifindo Toyshop</h3>
+                                <p class="project-description">
+                                    Comprehensive payroll management system with automated salary processing, employee management, and reporting features for efficient business operations.
+                                </p>
                             </div>
-                            <div class="flex space-x-4">
-                                <a href="#" class="project-link" target="_blank" rel="noopener">Live Demo</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                            
+                            <div class="project-technologies">
+                                <div class="tech-tags">
+                                    <span class="tech-tag">C#</span>
+                                    <span class="tech-tag">MSSQL</span>
+                                    <span class="tech-tag">Database Design</span>
+                                    <span class="tech-tag">Business Logic</span>
+                                </div>
+                            </div>
+                            
+                            <div class="project-footer">
+                                <div class="project-links-footer">
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        <span>Live Demo</span>
+                                    </a>
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fab fa-github"></i>
+                                        <span>View Code</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </article>
                     
                     <!-- Project 2: Database Solution for Qiett Attic Films -->
-                    <article class="project-card theme-aware" data-category="development">
-                        <div class="project-image-container">
-                            <div class="bg-gradient-to-br from-green-400 to-blue-600 h-48 rounded-t-xl flex items-center justify-center">
-                                <i class="fas fa-film text-white text-4xl"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fab fa-github"></i>
-                                    </a>
+                    <article class="project-card modern-card" data-category="development" data-technologies="c#,mssql,enterprise,film-industry">
+                        <div class="project-header">
+                            <div class="project-image-container">
+                                <div class="project-image">
+                                    <div class="image-placeholder bg-gradient-to-br from-emerald-500 to-teal-600">
+                                        <i class="fas fa-film"></i>
+                                    </div>
+                                </div>
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <div class="project-links">
+                                            <a href="#" class="project-link-btn" title="Live Demo" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                            <a href="#" class="project-link-btn" title="View Code" target="_blank" rel="noopener">
+                                                <i class="fab fa-github"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-badge">
+                                    <span class="badge-text">Development</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">Database Solution for Qiett Attic Films</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Comprehensive database management system for film production company managing multiple aspects of film operations.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tech-tag">C#</span>
-                                <span class="tech-tag">MSSQL</span>
-                                <span class="tech-tag">Enterprise Design</span>
-                                <span class="tech-tag">Film Industry</span>
+                        
+                        <div class="project-content">
+                            <div class="project-info">
+                                <h3 class="project-title">Database Solution for Qiett Attic Films</h3>
+                                <p class="project-description">
+                                    Enterprise-level database management system designed specifically for film production companies, managing projects, resources, and production workflows.
+                                </p>
                             </div>
-                            <div class="flex space-x-4">
-                                <a href="#" class="project-link" target="_blank" rel="noopener">Live Demo</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                            
+                            <div class="project-technologies">
+                                <div class="tech-tags">
+                                    <span class="tech-tag">C#</span>
+                                    <span class="tech-tag">MSSQL</span>
+                                    <span class="tech-tag">Enterprise Design</span>
+                                    <span class="tech-tag">Film Industry</span>
+                                </div>
+                            </div>
+                            
+                            <div class="project-footer">
+                                <div class="project-links-footer">
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        <span>Live Demo</span>
+                                    </a>
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fab fa-github"></i>
+                                        <span>View Code</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </article>
                     
                     <!-- Project 3: Network Solution for Alliance Health -->
-                    <article class="project-card theme-aware" data-category="networking">
-                        <div class="project-image-container">
-                            <div class="bg-gradient-to-br from-red-400 to-pink-600 h-48 rounded-t-xl flex items-center justify-center">
-                                <i class="fas fa-heartbeat text-white text-4xl"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fas fa-file-pdf"></i>
-                                    </a>
+                    <article class="project-card modern-card" data-category="networking" data-technologies="cisco,networking,healthcare,security">
+                        <div class="project-header">
+                            <div class="project-image-container">
+                                <div class="project-image">
+                                    <div class="image-placeholder bg-gradient-to-br from-red-500 to-pink-600">
+                                        <i class="fas fa-heartbeat"></i>
+                                    </div>
+                                </div>
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <div class="project-links">
+                                            <a href="#" class="project-link-btn" title="View Project" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                            <a href="#" class="project-link-btn" title="Documentation" target="_blank" rel="noopener">
+                                                <i class="fas fa-file-pdf"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-badge">
+                                    <span class="badge-text">Networking</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">Network Solution for Alliance Health</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Implemented comprehensive network infrastructure solution for healthcare organization ensuring secure and efficient connectivity.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tech-tag">Cisco</span>
-                                <span class="tech-tag">Networking</span>
-                                <span class="tech-tag">Healthcare IT</span>
-                                <span class="tech-tag">Security</span>
+                        
+                        <div class="project-content">
+                            <div class="project-info">
+                                <h3 class="project-title">Network Solution for Alliance Health</h3>
+                                <p class="project-description">
+                                    Comprehensive network infrastructure implementation for healthcare organization, ensuring secure, reliable, and HIPAA-compliant connectivity solutions.
+                                </p>
                             </div>
-                            <div class="flex space-x-4">
-                                <a href="#" class="project-link" target="_blank" rel="noopener">View Project</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener">Documentation</a>
+                            
+                            <div class="project-technologies">
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Cisco</span>
+                                    <span class="tech-tag">Networking</span>
+                                    <span class="tech-tag">Healthcare IT</span>
+                                    <span class="tech-tag">Security</span>
+                                </div>
+                            </div>
+                            
+                            <div class="project-footer">
+                                <div class="project-links-footer">
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        <span>View Project</span>
+                                    </a>
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Documentation</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </article>
                     
                     <!-- Project 4: Bus Seats Reservation System -->
-                    <article class="project-card theme-aware" data-category="development">
-                        <div class="project-image-container">
-                            <div class="bg-gradient-to-br from-yellow-400 to-orange-600 h-48 rounded-t-xl flex items-center justify-center">
-                                <i class="fas fa-bus text-white text-4xl"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fab fa-github"></i>
-                                    </a>
+                    <article class="project-card modern-card" data-category="development" data-technologies="java,system-design,transportation,booking">
+                        <div class="project-header">
+                            <div class="project-image-container">
+                                <div class="project-image">
+                                    <div class="image-placeholder bg-gradient-to-br from-amber-500 to-orange-600">
+                                        <i class="fas fa-bus"></i>
+                                    </div>
+                                </div>
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <div class="project-links">
+                                            <a href="#" class="project-link-btn" title="Live Demo" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                            <a href="#" class="project-link-btn" title="View Code" target="_blank" rel="noopener">
+                                                <i class="fab fa-github"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-badge">
+                                    <span class="badge-text">Development</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">Bus Seats Reservation System</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Java-based reservation system for bus transportation with comprehensive booking management features.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">System Design</span>
-                                <span class="tech-tag">Transportation</span>
-                                <span class="tech-tag">Booking System</span>
+                        
+                        <div class="project-content">
+                            <div class="project-info">
+                                <h3 class="project-title">Bus Seats Reservation System</h3>
+                                <p class="project-description">
+                                    Java-based reservation platform for bus transportation services with real-time seat booking, payment processing, and route management capabilities.
+                                </p>
                             </div>
-                            <div class="flex space-x-4">
-                                <a href="#" class="project-link" target="_blank" rel="noopener">Live Demo</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener">GitHub</a>
+                            
+                            <div class="project-technologies">
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">System Design</span>
+                                    <span class="tech-tag">Transportation</span>
+                                    <span class="tech-tag">Booking System</span>
+                                </div>
+                            </div>
+                            
+                            <div class="project-footer">
+                                <div class="project-links-footer">
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        <span>Live Demo</span>
+                                    </a>
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fab fa-github"></i>
+                                        <span>View Code</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </article>
                     
                     <!-- Project 5: E-Video Cloud App UI/UX Design -->
-                    <article class="project-card theme-aware" data-category="design">
-                        <div class="project-image-container">
-                            <div class="bg-gradient-to-br from-purple-400 to-indigo-600 h-48 rounded-t-xl flex items-center justify-center">
-                                <i class="fas fa-music text-white text-4xl"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <a href="#" class="project-link-overlay" target="_blank" rel="noopener">
-                                        <i class="fab fa-adobe"></i>
-                                    </a>
+                    <article class="project-card modern-card" data-category="design" data-technologies="adobe-xd,mobile-design,entertainment,prototyping">
+                        <div class="project-header">
+                            <div class="project-image-container">
+                                <div class="project-image">
+                                    <div class="image-placeholder bg-gradient-to-br from-purple-500 to-indigo-600">
+                                        <i class="fas fa-music"></i>
+                                    </div>
+                                </div>
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <div class="project-links">
+                                            <a href="#" class="project-link-btn" title="View Design" target="_blank" rel="noopener">
+                                                <i class="fas fa-external-link-alt"></i>
+                                            </a>
+                                            <a href="#" class="project-link-btn" title="Adobe XD" target="_blank" rel="noopener">
+                                                <i class="fab fa-adobe"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-badge">
+                                    <span class="badge-text">UI/UX Design</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2">E-Video Cloud App UI/UX Design</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">
-                                Mobile interface design for music entertainment application focusing on user experience and modern design principles.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tech-tag">Adobe XD</span>
-                                <span class="tech-tag">Mobile Design</span>
-                                <span class="tech-tag">Entertainment App</span>
-                                <span class="tech-tag">Prototyping</span>
+                        
+                        <div class="project-content">
+                            <div class="project-info">
+                                <h3 class="project-title">E-Video Cloud App UI/UX Design</h3>
+                                <p class="project-description">
+                                    Modern mobile interface design for music and video streaming application, focusing on intuitive user experience and engaging visual design.
+                                </p>
                             </div>
-                            <div class="flex space-x-4">
-                                <a href="#" class="project-link" target="_blank" rel="noopener">View Design</a>
-                                <a href="#" class="project-link" target="_blank" rel="noopener">Adobe XD</a>
+                            
+                            <div class="project-technologies">
+                                <div class="tech-tags">
+                                    <span class="tech-tag">Adobe XD</span>
+                                    <span class="tech-tag">Mobile Design</span>
+                                    <span class="tech-tag">Entertainment App</span>
+                                    <span class="tech-tag">Prototyping</span>
+                                </div>
+                            </div>
+                            
+                            <div class="project-footer">
+                                <div class="project-links-footer">
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        <span>View Design</span>
+                                    </a>
+                                    <a href="#" class="project-link-footer" target="_blank" rel="noopener">
+                                        <i class="fab fa-adobe"></i>
+                                        <span>Adobe XD</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -1448,6 +1710,28 @@
                         </div>
                     </article>
                 </div>
+                
+                <!-- Project Stats -->
+                <div class="project-stats">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">11</div>
+                            <div class="stat-label">Total Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Development</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2</div>
+                            <div class="stat-label">UI/UX Design</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Research & Networking</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1525,27 +1809,7 @@
                             </a>
                         </div>
                         
-                        <!-- Modern Location Card -->
-                        <div class="location-card">
-                            <div class="location-header">
-                                <div class="location-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h4>Based in Galle, Sri Lanka</h4>
-                                    <p>Beautiful coastal city in Southern Province</p>
-                                </div>
-                            </div>
-                            <div class="location-map">
-                                <a href="https://maps.app.goo.gl/hZMFiWxwPScMXXUe6" target="_blank" rel="noopener noreferrer" class="map-placeholder">
-                                    <div class="map-content">
-                                        <i class="fas fa-map-marked-alt"></i>
-                                        <span>View on Google Maps</span>
-                                        <small>Click to open interactive map</small>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+
                     </div>
                     
                     <!-- Modern Contact Form -->
